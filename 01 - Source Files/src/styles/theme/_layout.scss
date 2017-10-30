@@ -1,0 +1,12 @@
+$site-inner-max-width: 1280px;
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+.site-container {
+	height: 720px;
+	min-height: 100vh;
+	overflow: hidden;
+}

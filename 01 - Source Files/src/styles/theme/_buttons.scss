@@ -1,0 +1,5 @@
+.btn,
+[role="button"] {
+	@include transition(background 0.25s ease-out, color 0.25s ease-out);
+	
+}

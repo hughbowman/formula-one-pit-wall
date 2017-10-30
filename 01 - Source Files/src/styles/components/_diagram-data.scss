@@ -1,0 +1,80 @@
+.diagram-data {
+	font-size: 0;
+
+	&:not(:last-child) {
+		margin-bottom: 20px;
+
+		.content {
+			border-bottom: 1px solid $color-nandor-2;
+		}
+	}
+	
+	.diagram-img,
+	.content {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.diagram-img {
+		position: relative;
+		width: 100px;
+
+		.img {
+			position: absolute;
+			left: 50%;
+			top: 10px;
+			transform: translate(-50%, 0);
+		}
+	}
+	
+	.content {	
+		width: 170px;
+		padding-bottom: 20px;
+
+		.label {
+			margin: 0 0 4px;
+			@include font-1-regular;
+			font-size: 11px;
+			color: $color-nandor-2;
+		}
+
+		.text-block {
+			font-size: 25px;
+
+			.text-1 {
+				@include font-2-bold;
+				color: $color-sirocco-1;
+			}
+			.text-2 {
+				@include font-2-book;
+				color: $color-sirocco-1;
+			}
+			.text-3 {
+				@include font-2-bold;
+				color: #fff;
+			}
+		}
+
+		.value {
+			@include font-2-bold;
+			font-size: 25px;
+			color: #fff;
+
+			.text-1 {
+				color: #fff;
+			}
+			.text-2 {
+				color: #fff;
+			}
+
+			&[data-value-type],
+			*[data-value-type] {
+				&:after {
+					content: attr(data-value-type);
+					@include font-2-regular;
+					font-size: 17px;
+				}
+			}
+		}
+	}
+}

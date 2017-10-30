@@ -1,0 +1,121 @@
+.velocity-graph {
+	height: 315px;
+
+	.graph-bg {
+		fill: transparent;
+	}
+
+	.grid-lines {
+		.domain {
+			display: none;
+		}
+		.tick {
+			line {
+				stroke-width: 1px;
+				stroke: rgba(255, 255, 255, 0.1);
+			}
+
+			&:nth-of-type(5n-4) {
+				line {
+					stroke-width: 2px;
+					stroke: rgba(255, 255, 255, 0.15);
+				}
+			}
+		}
+	}
+	
+	.axis {
+		.domain {
+			display: none;
+		}
+
+		.tick {
+			line {
+				stroke-width: 2px;
+				stroke: rgba(255, 255, 255, 0.15);
+			}
+			text {
+				@include font-2-bold;
+				fill: $color-nandor-2;
+				font-size: 14px;
+			}
+		}
+
+		&.axis-left {
+			// .tick {
+			// 	text {
+			// 		font-size: 14px;
+			// 	}
+			// }
+		}
+
+		&.axis-bottom {
+			// .tick {
+			// 	text {
+			// 		font-size: 14px;
+			// 	}
+			// }
+		}
+
+		&.axis-bottom-small {
+			.tick {
+				&:nth-of-type(10n-9) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.graph-line {
+		fill: none;
+		stroke: #fff;
+		stroke-width: 2;
+		stroke-linecap: round;
+
+		&.line-reaction {
+			stroke: $color-thunderbird-1;
+		}
+		&.line-acceleration {
+			stroke: #fff;
+		}
+		&.line-runout {
+			stroke: #fff;
+		}
+		&.line-coasting {
+			stroke: #fff;
+		}
+		&.line-deceleration {
+			stroke: $color-thunderbird-1;
+		}
+	}
+
+	.graph-area {
+		fill: rgba(#fff, 0.3);
+		stroke: none;
+		stroke-width: 0;
+
+		&.area-reaction {
+			fill: rgba($color-thunderbird-1, 0.4);
+		}
+		&.area-acceleration {
+			fill: rgba(#fff, 0.3);
+		}
+		&.area-runout {
+			fill: rgba(#fff, 0.1);
+		}
+		&.area-coasting {
+			fill: rgba($color-nandor-2, 0.2);
+		}
+		&.area-deceleration {
+			fill: none;
+		}
+	}
+
+	.graph-circle {
+		cursor: pointer;
+		stroke: #fff;
+		stroke-width: 2;
+		fill: $color-mine-shaft;
+	}
+
+}

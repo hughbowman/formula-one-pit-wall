@@ -1,0 +1,38 @@
+// Colors
+
+$color-outer-space-1: #1C2628;
+$color-outer-space-2: #333B3D;
+$color-sirocco-1: #697F7F;
+$color-cape-cod-1: #42494A;
+$color-cape-cod-2: #383F3E;
+$color-cape-cod-3: #394141;
+$color-thunderbird-1: #DE2B16;
+$color-nandor-1: #4D6060;
+$color-nandor-2: #4C5F5F;
+$color-iron-1: #CECFD0;
+$color-mine-shaft: #2D2D2D;
+$color-gunsmoke-1: #858E8E;
+$color-silver-sand-1: #CACCCC;
+$color-dove-gray-1: #6D6D6D;
+$color-oslo-gray-1: #969B9B;
+$color-everglade-1: #274630;
+$color-chateau-green-1: #39B54A;
+$color-forest-green-1: #257C33;
+
+
+html {
+	background-color: $color-outer-space-1;
+	color: #fff;
+}
+
+
+// *:focus {
+// 	outline: $outline;
+// 	outline-offset: -1px;
+// }
+
+.bg-dot-1 {
+	background-image: url('../img/bg-dot-1.png');
+	background-size: 18px 18px;
+	background-position: left top;
+}

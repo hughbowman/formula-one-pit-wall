@@ -1,0 +1,125 @@
+.race-stages-graph {
+	width: 980px;
+	margin: auto;
+	text-align: left;
+	font-size: 0;
+	height: 52px;
+	
+	.header-item,
+	.stage-container {
+		display: inline-block;
+		vertical-align: top;
+		height: 100%;
+	}
+
+	.header-item {
+		width: 85px;
+		padding: 10px 0 0 0;
+
+		.label {
+			margin: 0 0 4px;
+			@include font-1-regular;
+			font-size: 11px;
+			color: $color-nandor-2;
+		}
+
+		.content {
+			.text-block {
+				display: inline-block;
+				vertical-align: top;
+				font-size: 27px;
+				text-transform: uppercase;
+			}
+
+			.text-1 {
+				@include font-2-bold;
+				color: $color-sirocco-1;
+			}
+		}
+	}
+
+	.stage-container {
+		position: relative;
+		width: 875px;
+		font-size: 0;
+		white-space: nowrap;
+		overflow: hidden;
+
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: 2;
+			right: 0;
+			bottom: 0;
+			width: 1px;
+			height: 100%;
+			background: #fff;
+		}
+
+		.bar {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			width: 20%;
+			height: 100%;
+			overflow: hidden;
+
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 30px;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				z-index: 2;
+				left: 0;
+				bottom: 0;
+				width: 1px;
+				height: 100%;
+				background: #fff;
+			}
+
+			&.bar-reaction {
+				&:before {
+					background: rgba($color-thunderbird-1, 0.4);
+				}
+			}
+			&.bar-acceleration {
+				&:before {
+					background: rgba(#fff, 0.3);
+				}
+			}
+			&.bar-runout {
+				&:before {
+					background: rgba(#fff, 0.1);
+				}
+			}
+			&.bar-coasting {
+				&:before {
+					background: rgba($color-nandor-2, 0.2);
+				}
+			}
+			&.bar-deceleration {
+				&:before {
+					background-image: url(../img/bg-red-stripes-1.png);
+					background-size: 12px 30px;
+				}
+			}
+
+			.label {
+				position: absolute;
+				left: 6px;
+				top: 0;
+				@include font-1-regular;
+				font-size: 11px;
+				color: $color-iron-1;
+				white-space: nowrap;
+			}
+		}
+	}
+}

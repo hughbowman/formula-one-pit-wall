@@ -1,0 +1,15 @@
+.car-model-diagram {
+	position: relative;
+	width: 470px;
+	height: 435px;
+	margin: 14px auto;
+
+	img {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 100%;
+		height: auto;
+		transform: translate(-50%, -50%);
+	}
+}

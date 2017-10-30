@@ -1,0 +1,110 @@
+.value-diff-list {
+	@include plainlist;
+
+	li {
+		height: 28px;
+		border-left: 4px solid $color-nandor-2;
+
+		&:not(:last-child) {
+			margin-bottom: 3px;
+		}
+
+		> div {
+			display: inline-block;
+			vertical-align: top;
+			height: 100%;
+			font-size: 0;
+		}
+		
+		.diff {
+			position: relative;
+			width: 30px;
+			background: #fff;
+
+			.icon {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				display: none;
+				transform: translate(-50%, -50%);
+			}
+
+			&[data-diff="UP"] {
+				.icon {
+					display: block;
+					fill: $color-chateau-green-1;
+				}
+			}
+			&[data-diff="DOWN"] {
+				.icon {
+					display: block;
+					fill: $color-thunderbird-1;
+					transform: translate(-50%, -50%) rotate(180deg);
+				}
+			}
+		}
+
+		.name {
+			width: 170px;
+			background: #fff;
+
+			.text {
+				display: block;
+				@include font-1-bold;
+				font-size: 12px;
+				color: #000;
+				padding: 8px 20px 4px 6px;
+			}
+		}
+
+		.value {
+			position: relative;
+			z-index: 1;
+			width: 50px;
+
+			&:after {
+				content: "";
+				position: absolute;
+				z-index: -1;
+				left: -6px;
+				top: 0;
+				width: calc(100% + 18px);
+				height: 100%;
+				background: $color-nandor-2;
+				transform: skew(-20deg);
+			}
+			
+			.text-1 {
+				position: relative;
+				display: inline-block;
+				@include font-2-bold;
+				font-size: 18px;
+				color: #fff;
+				padding: 4px 0 4px 8px;
+
+				&[data-value-type] {
+					&:after {
+						content: attr(data-value-type);
+						display: inline-block;
+						@include font-2-regular;
+						font-size: 8px;
+					}
+				}
+
+				&[data-value-change] {
+					&:before {
+						content: attr(data-value-change);
+						position: absolute;
+						left: 6px;
+						top: 50%;
+						display: inline-block;
+						@include font-2-regular;
+						font-size: 12px;
+						transform: translate(-100%, -50%);
+					}
+				}
+			}
+
+		}
+	}	
+}

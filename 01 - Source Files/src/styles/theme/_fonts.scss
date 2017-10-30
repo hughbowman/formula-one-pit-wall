@@ -1,0 +1,68 @@
+// Import fonts and define font-family vars here
+
+$font-dir: "../fonts/";
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url($font-dir + "HelveticaNeue.woff") format("woff"),
+		 url($font-dir + "HelveticaNeue.ttf") format("truetype");
+}
+@font-face {
+	font-family: "bebas_neueregular";
+	src: url($font-dir + "bebasneue_regular-webfont.woff2") format("woff2"),
+		 url($font-dir + "bebasneue_regular-webfont.woff") format("woff");
+}
+@font-face {
+	font-family: "bebas_neuebold";
+	src: url($font-dir + "bebasneue_bold-webfont.woff2") format("woff2"),
+		 url($font-dir + "bebasneue_bold-webfont.woff") format("woff");
+}
+@font-face {
+	font-family: "bebas_neuebook";
+	src: url($font-dir + "bebasneue_book-webfont.woff2") format("woff2"),
+		 url($font-dir + "bebasneue_book-webfont.woff") format("woff");
+}
+@font-face {
+    font-family: 'bebas_neuelight';
+    src: url($font-dir + 'bebasneue_light-webfont.woff2') format('woff2'),
+         url($font-dir + 'bebasneue_light-webfont.woff') format('woff');
+}
+
+$font-1-regular: "Helvetica Neue", Helvetica, sans-serif;
+$font-1-bold: "Helvetica Neue", Helvetica, sans-serif;
+$font-2-regular: "bebas_neueregular", Arial, sans-serif;
+$font-2-bold: "bebas_neuebold", Arial, sans-serif;
+$font-2-book: "bebas_neuebook", Arial, sans-serif;
+$font-2-light: "bebas_neuelight", Arial, sans-serif;
+
+
+@mixin font-1-regular () {
+	font-family: $font-1-regular;
+	font-weight: 400;
+	font-style: normal;
+}
+@mixin font-1-bold () {
+	font-family: $font-1-bold;
+	font-weight: 600;
+	font-style: normal;
+}
+@mixin font-2-regular () {
+	font-family: $font-2-regular;
+	font-weight: 400;
+	font-style: normal;
+}
+@mixin font-2-bold {
+	font-family: $font-2-bold;
+	font-weight: 700;
+	font-style: normal;
+}
+@mixin font-2-book {
+	font-family: $font-2-book;
+	font-weight: 300;
+	font-style: normal;
+}
+@mixin font-2-light {
+	font-family: $font-2-light;
+	font-weight: 300;
+	font-style: normal;
+}

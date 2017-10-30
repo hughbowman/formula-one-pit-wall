@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Hyperdrive</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+	@@include('snippets/head-svg-symbols.html')
+
+	<div class="site-container">
+		@@include('components/site-header.html')		
+
+		<div id="page-container">
+			<div class="loading">
+				Loading...
+			</div>
+		</div>
+
+		
+	</div>
+
+	<!-- PAGES -->
+	<script id="page-dashboard" type="text/x-jsrender">
+		@@include('pages/dashboard.html')
+	</script>
+	<script id="page-graph" type="text/x-jsrender">
+		@@include('pages/graph.html')
+	</script>
+	<script id="page-timing" type="text/x-jsrender">
+		@@include('pages/timing.html')
+	</script>
+	<script id="page-analysis" type="text/x-jsrender">
+		@@include('pages/analysis.html')
+	</script>
+	<script id="page-social" type="text/x-jsrender">
+		@@include('pages/social.html')
+	</script>
+
+	<script type="text/javascript" src="assets/js/dependencies.js"></script>
+	<script type="text/javascript" src="assets/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<div class="page-layout page-analysis">
+
+	<div class="inner">
+
+		<div class="layout-col layout-col-1">
+
+			<h2 class="title-bar">
+				<span class="text-1">
+					Hyperdrive
+				</span>
+				<span class="text-2">
+					XPR4
+				</span>
+				<span class="text-1">
+					///
+				</span>
+			</h2>
+
+			<div class="diagram-data">
+				<div class="diagram-img">
+					<div class="img">
+						<svg viewBox="0 0 68.9 64.2" width="69" height="64">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#diagram-lers-time-1"></use>
+						</svg>
+					</div>
+				</div>
+				<div class="content">
+					<div class="label">
+						Launch energy recovery system
+					</div>
+					<div class="text-block">
+						<span class="text-1">
+							LERS
+						</span>
+						<span class="text-2">
+							Time Advantage
+						</span>
+						<div class="value" data-value-type="s">
+							{{if currentRace}}{{:currentRace.LERS_ADVANTAGE}}{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="diagram-data">
+				<div class="diagram-img">
+					<div class="img">
+						<svg viewBox="0 0 87 46.6" width="87" height="47">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#diagram-drag-1"></use>
+						</svg>
+					</div>
+				</div>
+				<div class="content">
+					<div class="label">
+						Aerodynamics
+					</div>
+					<div class="text-block">
+						<span class="text-1">
+							Drag Coefficient
+						</span>
+						<div class="value">
+							{{if currentRace}}{{:currentRace.DRAG_COEFFICIENT}}{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="diagram-data">
+				<div class="diagram-img">
+					<div class="img">
+						<svg viewBox="0 0 58.2 20.1" width="59" height="21">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#diagram-forces-1"></use>
+						</svg>
+					</div>
+				</div>
+				<div class="content">
+					<div class="text-block">
+						<span class="text-3">
+							Forces
+						</span>
+					</div>
+					<div class="label">
+						Most Recent Race
+					</div>
+				</div>
+
+				<ul class="value-diff-list">
+
+					<li>
+						<div class="diff" data-diff="{{if currentRace}}{{:currentRace.THRUSTFORCE.DIFF}}{{/if}}">
+							<div class="icon">
+								<svg viewBox="0 0 64 42.6" width="12" height="8">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-triangle-1"></use>
+								</svg>
+							</div>
+						</div>
+						<div class="name">
+							<span class="text">
+								Thrust
+							</span>
+						</div>
+						<div class="value">
+							<span class="text-1" data-value-type="n" data-value-change="{{if currentRace}}{{:currentRace.THRUSTFORCE.CHANGE}}{{/if}}">
+								{{if currentRace}}{{:currentRace.THRUSTFORCE.VALUE}}{{/if}}
+							</span>
+						</div>
+					</li>
+
+					<li>
+						<div class="diff" data-diff="{{if currentRace}}{{:currentRace.LIFTFORCE.DIFF}}{{/if}}">
+							<div class="icon">
+								<svg viewBox="0 0 64 42.6" width="12" height="8">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-triangle-1"></use>
+								</svg>
+							</div>
+						</div>
+						<div class="name">
+							<span class="text">
+								Lift
+							</span>
+						</div>
+						<div class="value">
+							<span class="text-1" data-value-type="s" data-value-change="{{if currentRace}}{{:currentRace.LIFTFORCE.CHANGE}}{{/if}}">
+								{{if currentRace}}{{:currentRace.LIFTFORCE.VALUE}}{{/if}}
+							</span>
+						</div>
+					</li>
+
+					<li>
+						<div class="diff" data-diff="{{if currentRace}}{{:currentRace.DOWNFORCE.DIFF}}{{/if}}">
+							<div class="icon">
+								<svg viewBox="0 0 64 42.6" width="12" height="8">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-triangle-1"></use>
+								</svg>
+							</div>
+						</div>
+						<div class="name">
+							<span class="text">
+								Downforce
+							</span>
+						</div>
+						<div class="value">
+							<span class="text-1" data-value-type="n" data-value-change="{{if currentRace}}{{:currentRace.DOWNFORCE.CHANGE}}{{/if}}">
+								{{if currentRace}}{{:currentRace.DOWNFORCE.VALUE}}{{/if}}
+							</span>
+						</div>
+					</li>
+
+					<li>
+						<div class="diff" data-diff="{{if currentRace}}{{:currentRace.TETHERLINE_FORCE.DIFF}}{{/if}}">
+							<div class="icon">
+								<svg viewBox="0 0 64 42.6" width="12" height="8">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-triangle-1"></use>
+								</svg>
+							</div>
+						</div>
+						<div class="name">
+							<span class="text">
+								Tether Line
+							</span>
+						</div>
+						<div class="value">
+							<span class="text-1" data-value-type="n" data-value-change="{{if currentRace}}{{:currentRace.TETHERLINE_FORCE.CHANGE}}{{/if}}">
+								{{if currentRace}}{{:currentRace.TETHERLINE_FORCE.VALUE}}{{/if}}
+							</span>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="layout-col layout-col-2">
+			<div class="car-model-diagram bg-dot-1">
+				<img src="assets/img/car-models-1.png" alt="">
+			</div>
+
+			<header class="page-header">
+				<div class="header-item">
+					<h3 class="label">
+						Race Results
+					</h3>
+					<div class="content">
+						<div class="text-block">
+							<span class="text-2">
+								Previous
+							</span>
+							<span class="text-1">
+								Race
+							</span>
+							<span class="text-3">
+								Data
+							</span>
+						</div>
+
+						<ul class="skew-buttons">
+							<li {{if raceMode == 'TT' && currentRaceIndex == 0}}class="active"{{/if}}>
+								<a href="#TT-0" class="js-set-current-race">
+									<span class="text">
+										01
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'TT' && currentRaceIndex == 1}}class="active"{{/if}}>
+								<a href="#TT-1" class="js-set-current-race">
+									<span class="text">
+										02
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'TT' && currentRaceIndex == 2}}class="active"{{/if}}>
+								<a href="#TT-2" class="js-set-current-race">
+									<span class="text">
+										03
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'TT' && currentRaceIndex == 3}}class="active"{{/if}}>
+								<a href="#TT-3" class="js-set-current-race">
+									<span class="text">
+										04
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'RR' && currentRaceIndex == 0}}class="active"{{/if}}>
+								<a href="#RR-0" class="js-set-current-race">
+									<span class="text">
+										05
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'RR' && currentRaceIndex == 1}}class="active"{{/if}}>
+								<a href="#RR-1" class="js-set-current-race">
+									<span class="text">
+										06
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'RR' && currentRaceIndex == 2}}class="active"{{/if}}> <!-- class="active" -->
+								<a href="#RR-2" class="js-set-current-race">
+									<span class="text">
+										07
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'RR' && currentRaceIndex == 3}}class="active"{{/if}}> <!-- class="disabled" -->
+								<a href="#RR-3" class="js-set-current-race">
+									<span class="text">
+										08
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
+		</div>
+
+		<div class="layout-col layout-col-3">
+
+			<div>
+				<div class="diagram-data">
+					<div class="content">
+						<div class="label">
+							Hyperdrive XPR4
+						</div>
+						<div class="text-block">
+							<span class="text-1">
+								Wheel System
+							</span>
+							<div class="value" data-value-type="rpm">
+								{{if currentRace}}{{:currentRace.PEAK_WHEELSPEED}}{{/if}}
+							</div>
+						</div>
+					</div>
+					<div class="diagram-img">
+						<div class="img">
+							<svg viewBox="0 0 54 54" width="52" height="52">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#diagram-wheel-1"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+
+				<div class="diagram-data">
+					<div class="content">
+						<div class="label">
+							ABEC 9
+						</div>
+						<div class="text-block">
+							<span class="text-1">
+								Bearing Wear
+							</span>
+							<div class="value">
+								<span class="text-1">
+									{{if currentRace}}{{:currentRace.BEARINGWEAR.LAPS}}{{/if}}
+								</span>
+								<span class="text-2">
+									Laps /
+								</span>
+								<span class="text-1" data-value-type="s">
+									{{if currentRace}}{{:currentRace.BEARINGWEAR.PEAK}}{{/if}}
+								</span>
+								<span class="text-2">
+									Peak
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="diagram-img">
+						<div class="img">
+							<svg viewBox="0 0 51.8 51.8" width="52" height="52">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#diagram-bearing-1"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="highlight-box-group">
+
+				<div class="highlight-box -green">
+					<div class="highlight-box-inner">
+						<div class="content">
+							<div class="label">
+								Target Time
+							</div>
+							<div class="value">
+								<span class="text-1" data-value-type="s">
+									{{if currentRace}}{{:currentRace.TARGET_TIME}}{{/if}}
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="highlight-box -white">
+					<div class="highlight-box-inner">
+						<div class="content">
+							<div class="label">
+								Last Race
+							</div>
+							<div class="value">
+								<span class="text-1">
+									{{if currentRace}}{{:currentRace.LAST_RACE_TIME.VALUE}}{{/if}}
+								</span>
+							</div>
+						</div>
+					</div>
+					<!--
+					<div class="stat-note -red">
+						<span class="text" data-value-type="s" data-value-change="{{if currentRace}}{{:currentRace.LAST_RACE_TIME.CHANGE}}{{/if}}">
+							{{if currentRace}}{{:currentRace.LAST_RACE_TIME.CHANGE_VALUE}}{{/if}}
+						</span>
+					</div>
+					 -->
+				</div>
+
+				<div class="highlight-box -white">
+					<div class="highlight-box-inner">
+						<div class="content">
+							<div class="label">
+								Best Time
+							</div>
+							<div class="value">
+								<span class="text-1">
+									{{:currentModeBestTime}}
+								</span>
+							</div>
+						</div>
+					</div>
+					<!--
+					<div class="stat-note -red">
+						<span class="text" data-value-type="s" data-value-change="{{if currentRace}}{{:currentRace.RECORD_TIME.CHANGE}}{{/if}}">
+							{{if currentRace}}{{:currentRace.RECORD_TIME.CHANGE_VALUE}}{{/if}}
+						</span>
+					</div>
+					-->
+				</div>
+
+				<!-- <div class="highlight-box-note">
+					Off target time
+				</div> -->
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

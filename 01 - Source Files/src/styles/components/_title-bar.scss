@@ -1,0 +1,14 @@
+.title-bar {
+	font-size: 57px;
+	letter-spacing: -0.01em;
+	margin: 0 0 40px;
+
+	.text-1 {
+		@include font-2-light;
+		color: $color-sirocco-1;
+	}
+	.text-2 {
+		@include font-2-bold;
+		color: #fff;
+	}
+}

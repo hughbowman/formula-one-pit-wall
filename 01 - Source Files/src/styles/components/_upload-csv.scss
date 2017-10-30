@@ -1,0 +1,117 @@
+.upload-csv {
+	width: 100%;
+
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	.field-label {
+		position: relative;
+		@include font-2-bold;
+		font-size: 27px;
+		margin-bottom: 15px;
+
+		.btn-clear-data {
+			@include transition(all 0.2s ease-out);
+			position: absolute;
+			right: 0;
+			top: 0;
+			@include font-1-regular;
+			font-size: 14px;
+			border: none;
+			background: rgba(#fff, 0.1);
+			padding: 6px 12px;
+
+			&:hover {
+				background: $color-thunderbird-1;
+			}
+		}
+	}
+
+
+	.instruction {
+		@include font-1-regular;
+		font-size: 14px;
+		margin-bottom: 15px;
+		color: $color-nandor-1;
+	}
+
+	input[type=file] {
+		width: 100%;
+		height: 21px;
+		@include font-1-regular;
+		font-size: 14px;
+		border: none;
+		background: rgba(#fff, 0.1);
+	}
+
+	.race-graph-file {
+		margin-bottom: 8px;
+
+
+		input[type=file] {
+			width: calc(100% - 50px);
+		}
+
+		.race-graph-label {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			width: 50px;
+			padding: 2px 10px;
+			@include font-2-book;
+			font-size: 16px;
+			color: #fff;
+
+			&:before {
+				@include transition(all 0.25s ease-out);
+				content: "";
+				position: absolute;
+				z-index: -1;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: $color-nandor-2;
+			}
+
+			&:hover {
+				&:before {
+					background-color: lighten($color-nandor-2, 10);
+				}
+			}
+
+			.text {
+				@include transition(all 0.25s ease-out);
+				position: relative;
+				z-index: 2;
+				color: #fff;
+			}
+		}
+
+		&.active {
+			.race-graph-label {
+				@include font-2-bold;
+				cursor: default;
+
+				&:before {
+					background-color: $color-thunderbird-1;
+				}
+			}
+		}
+
+		&.disabled {
+			.race-graph-label {
+				cursor: default;
+
+				&:before {
+					background-color: darken($color-nandor-2, 15);
+				}
+
+				.text {
+					color: darken(#fff, 50);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,214 @@
+<div class="page-layout page-graph">
+
+	<div class="inner">
+
+		<header class="page-header">
+
+			<div class="header-item">
+				<h3 class="label">
+					Race Graph
+				</h3>
+				<div class="content">
+					<div class="text-block">
+						<span class="text-1">
+							Velocity/Time
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-item">
+				<h3 class="label">
+					Race Format
+				</h3>
+				<div class="content">
+					<div class="text-block" style="min-width: 145px;">
+						<span class="text-1">
+							{{if raceMode == 'TT'}}
+								Time
+							{{/if}}
+							{{if raceMode == 'RR'}}
+								Reaction
+							{{/if}}
+						</span>
+						<span class="text-2">
+							{{if raceMode == 'TT'}}
+								Trial
+							{{/if}}
+							{{if raceMode == 'RR'}}
+								Racing
+							{{/if}}
+						</span>
+					</div>
+
+					<ul class="skew-buttons">
+						<li {{if raceMode == 'TT'}}class="active"{{/if}}>
+							<a href="#TT" class="js-set-race-mode">
+								<span class="text">
+									TT
+								</span>
+							</a>
+						</li>
+						<li {{if raceMode == 'RR'}}class="active"{{/if}}>
+							<a href="#RR" class="js-set-race-mode">
+								<span class="text">
+									RR
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="header-item">
+				<h3 class="label">
+					Race Results
+				</h3>
+				<div class="content">
+					<div class="text-block" style="min-width: 130px;">
+						<span class="text-1">
+							Race
+						</span>
+						<span class="text-2">
+							0{{:currentRaceIndex + 1}}
+						</span>
+						<span class="text-3">
+							Lane{{if currentRace}}{{:currentRace.LANE}}{{/if}}
+						</span>
+					</div>
+
+					<ul class="skew-buttons">
+						<li {{if currentRaceIndex == 0}}class="active"{{/if}}>
+							<a href="#{{:raceMode}}-0" class="js-set-current-race">
+								<span class="text">
+									01
+								</span>
+							</a>
+						</li>
+						<li {{if currentRaceIndex == 1}}class="active"{{/if}}>
+							<a href="#{{:raceMode}}-1" class="js-set-current-race">
+								<span class="text">
+									02
+								</span>
+							</a>
+						</li>
+						<li {{if currentRaceIndex == 2}}class="active"{{/if}}>
+							<a href="#{{:raceMode}}-2" class="js-set-current-race">
+								<span class="text">
+									03
+								</span>
+							</a>
+						</li>
+						<li {{if currentRaceIndex == 3}}class="active"{{/if}}>
+							<a href="#{{:raceMode}}-3" class="js-set-current-race">
+								<span class="text">
+									04
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="header-item">
+				<h3 class="label">
+					Track Distance
+				</h3>
+				<div class="content">
+					<div class="text-block">
+						<span class="text-1">
+							20
+						</span>
+						<span class="text-3">
+							Meters
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-item" style="width: 155px;">
+				<h3 class="label">
+					Net Lap Time
+				</h3>
+				<div class="content">
+					<div class="text-block">
+						<span class="text-1">
+							{{if currentRace}}{{:currentRace.NETLAP.VALUE}}{{/if}}
+						</span>
+						<span class="text-3">
+							Seconds
+						</span>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="velocity-graph" class="velocity-graph">
+			
+		</div>
+
+		<div class="race-stages-graph">
+			<div class="header-item">
+				<h3 class="label">
+					Race
+				</h3>
+				<div class="content">
+					<div class="text-block">
+						<span class="text-1">
+							Stages
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="stage-container">
+				<div class="bar bar-reaction">
+					<div class="label">
+						React
+					</div>
+				</div>
+				<div class="bar bar-acceleration">
+					<div class="label">
+						Acceleration
+					</div>
+				</div>
+				<div class="bar bar-runout">
+					<div class="label">
+						Run Out
+					</div>
+				</div>
+				<div class="bar bar-coasting">
+					<div class="label">
+						Coasting
+					</div>
+				</div>
+				<div class="bar bar-deceleration">
+					<div class="label">
+						Deceleration
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<div id="graph-tooltip" class="graph-tooltip">
+		<div class="tooltip-content">
+			<div class="name">
+				<span class="text js-tooltip-name">
+					Acceleration
+				</span>
+			</div>
+			<div class="time">
+				<span class="text-1 js-tooltip-time" data-value-type="s">
+					0.000
+				</span>
+			</div>
+			<div class="value">
+				<span class="text-1 js-tooltip-value" data-value-type="m/s">
+					0
+				</span>
+			</div>
+		</div>
+	</div>
+
+</div>

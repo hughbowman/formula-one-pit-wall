@@ -1,0 +1,28 @@
+.sponsor-logos {
+	background: #fff;
+	// padding: 20px 5px;
+
+	.text-block {
+		@include font-1-bold;
+		font-size: 22px;
+		color: #000;
+		padding: 0 12px;
+		margin-bottom: 12px;
+	}
+
+	.logo-grid {
+		font-size: 0;
+
+		.logo {
+			display: inline-block;
+			vertical-align: top;
+			width: 6.65%;
+			padding: 12px;
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+	}
+}

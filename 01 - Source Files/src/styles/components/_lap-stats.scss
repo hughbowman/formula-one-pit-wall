@@ -1,0 +1,311 @@
+.lap-stats {
+	padding: 30px 0 20px;
+	background-color: rgba(0, 0, 0, 0.25);
+	font-size: 0;
+
+	&.disabled {
+		background-color: transparent;
+
+		.stat-item {
+			.content {
+				.text-block {
+					color: $color-cape-cod-3;
+				}
+			}
+		}
+	}
+	
+	.stat-item {
+		height: 62px;
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 20px;
+
+		&:last-child {
+			padding-right: 0;
+		}
+		&:not(:last-child) {
+			&:not(.big-number):not(.lap-graph) {
+				border-right: 1px solid $color-nandor-2;
+			}
+
+		}
+
+		&.big-number {
+			margin-top: -18px;
+			width: 88px;
+
+			.number {
+				@include font-2-book;
+				font-size: 60px;
+				color: $color-nandor-2;
+			}
+		}
+
+		&.lap-graph {
+			position: relative;
+			width: 100px;
+			padding: 0;
+
+			.label {
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				transform: translate(-50%, 0);
+			}
+
+			.content {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+					
+				.text-block {
+					.text-1 {
+						@include font-2-bold;
+						font-size: 20px;
+					}
+					.text-2 {
+						@include font-2-regular;
+						font-size: 13px;
+					}
+				}
+			}
+
+			.diagram {
+				position: absolute;
+				left: 50%;
+				top: calc(50% - 6px);
+				transform: translate(-50%, -50%);
+				
+				path {
+					position: relative;
+					stroke-width: 7;
+					stroke-linecap: round;
+				}
+
+				.top-outer {
+					z-index: 2;
+					stroke: $color-silver-sand-1;
+					stroke-dasharray: 188;
+					stroke-dashoffset: 0;
+				}
+				.top-inner {
+					z-index: 2;
+					stroke: $color-silver-sand-1;
+					stroke-dasharray: 130;
+					stroke-dashoffset: 0;
+				}
+				.bottom-outer {
+					z-index: 1;
+					stroke: rgba($color-silver-sand-1, 0.2);
+				}
+				.bottom-inner {
+					z-index: 1;
+					stroke: rgba($color-silver-sand-1, 0.2);
+				}
+			}
+		}
+
+		&.reaction-time {
+			width: 115px;
+		}
+
+		&.gross-lap {
+			width: 100px;
+		}
+
+		&.penalties {
+			width: 90px;
+		}
+
+		&.lane {
+			width: 50px;
+		}
+
+		.label {
+			margin: 0;
+			@include font-1-regular;
+			font-size: 11px;
+			color: $color-nandor-2;
+		}
+
+		.content {
+
+			.text-block {
+				display: block;
+				vertical-align: top;
+				text-transform: uppercase;
+				color: #fff;
+				margin-bottom: 6px;
+				white-space: nowrap;
+			}
+
+			.text-1 {
+				@include font-2-bold;
+				font-size: 27px;
+			}
+			.text-2 {
+				@include font-2-regular;
+				font-size: 17px;
+			}
+			.text-3 {
+				@include font-2-book;
+				color: $color-sirocco-1;
+			}
+
+		}
+
+		&.-green {
+			.content {
+				.text-block {
+					color: $color-chateau-green-1;
+				}
+			}
+
+			.stat-note {
+				background: $color-chateau-green-1;
+				
+				&.-split {
+					background: $color-cape-cod-2;
+					
+					> span {
+						&:last-child {
+							background: $color-chateau-green-1;
+						}
+					}
+				}
+
+				&.-skew-right {
+					> span {
+						background: $color-chateau-green-1;
+					}
+				}
+			}
+
+			&.lap-graph {
+				.diagram {
+					.top-outer.color-fill {
+						stroke: $color-chateau-green-1;
+					}
+					.top-inner.color-fill {
+						stroke: $color-chateau-green-1;
+					}
+				}	
+			}
+		}
+
+		&.-red {
+			.content {
+				.text-block {
+					color: $color-thunderbird-1;
+				}
+			}
+
+			.stat-note {
+				background: $color-thunderbird-1;
+				
+				&.-split {
+					
+					background: $color-cape-cod-2;
+
+					> span {
+						&:last-child {
+							background: $color-thunderbird-1;
+						}
+					}
+				}
+
+				&.-skew-right {
+					> span {
+						background: $color-thunderbird-1;
+					}
+				}
+			}
+
+			&.lap-graph {
+				.diagram {
+					.top-outer.color-fill {
+						stroke: $color-thunderbird-1;
+					}
+					.top-inner.color-fill {
+						stroke: $color-thunderbird-1;
+					}
+				}	
+			}
+		}
+
+		.stat-note {
+			display: inline-block;
+			vertical-align: top;
+			height: 15px;
+			width: auto;
+			background: $color-cape-cod-2;
+			@include font-1-regular;
+			font-size: 0;
+
+			> span {
+				display: inline-block;
+				height: 100%;
+				padding: 2px 6px;
+				font-size: 8px;
+			}
+
+
+			&.-split {
+				> span {
+					&:first-child {
+						padding-right: 9px;
+					}
+					&:last-child {
+						position: relative;
+						z-index: 0;
+						background: darken($color-cape-cod-2, 5);
+						padding-left: 3px;
+
+						&:after {
+							content: "";
+							position: absolute;
+							z-index: -1;
+							left: -3px;
+							top: 0;
+							width: 12px;
+							height: 100%;
+							background: inherit;
+							transform: skew(-20deg);
+						}
+					}
+				}
+			}
+
+			&.-skew-right {
+				> span {
+					position: relative;
+					z-index: 0;
+					background: $color-cape-cod-2;
+					padding-right: 4px;
+
+					&:after {
+						content: "";
+						position: absolute;
+						z-index: -1;
+						right: -4px;
+						top: 0;
+						width: 12px;
+						height: 100%;
+						background: inherit;
+						transform: skew(-20deg);
+					}
+				}
+			}
+		}
+	}
+}
+
+.lap-stats-list {
+	.lap-stats {
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+}

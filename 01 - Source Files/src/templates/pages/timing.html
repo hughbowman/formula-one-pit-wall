@@ -1,0 +1,380 @@
+<div class="page-layout page-timing">
+
+	<div class="inner">
+
+		<div class="layout-col layout-col-1">
+			<header class="page-header">
+				<div class="header-item">
+					<h3 class="label">
+						Race Format
+					</h3>
+					<div class="content">
+						<div class="text-block" style="min-width: 145px;">
+							<span class="text-1">
+								{{if raceMode == 'TT'}}
+									Time
+								{{/if}}
+								{{if raceMode == 'RR'}}
+									Reaction
+								{{/if}}
+							</span>
+							<span class="text-2">
+								{{if raceMode == 'TT'}}
+									Trial
+								{{/if}}
+								{{if raceMode == 'RR'}}
+									Racing
+								{{/if}}
+							</span>
+						</div>
+						<ul class="skew-buttons">
+							<li {{if raceMode == 'TT'}}class="active"{{/if}}>
+								<a href="#TT" class="js-set-race-mode">
+									<span class="text">
+										TT
+									</span>
+								</a>
+							</li>
+							<li {{if raceMode == 'RR'}}class="active"{{/if}}>
+								<a href="#RR" class="js-set-race-mode">
+									<span class="text">
+										RR
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			<!-- TODO - If filtering is in scope -->
+			<!-- <div class="header-item">
+					<h3 class="label">
+						Sort Races By:
+					</h3>
+					<div class="content">
+						<div class="custom-select">
+							<select></select>
+						</div>
+					</div>
+				</div> -->
+			</header>
+
+			<div class="lap-stats-list">
+				{{if currentModeRaces}}
+					{{for currentModeRaces}}
+						<article class="lap-stats">
+
+							<div class="stat-item big-number {{if MODE_PLACE.POSITION == 1}}-green{{/if}}">
+								<a class="js-sort-current-races" href="#RACENO">
+									<div class="number">
+										0{{:RACENO}}
+									</div>
+									{{if MODE_PLACE.POSITION == 1}}
+									<div class="stat-note -skew-right">
+										<span class="text">
+											Best Run
+										</span>
+									</div>
+									{{/if}}
+								</a>
+							</div>
+
+							<div class="stat-item lap-graph {{if MODE_PLACE.POSITION == 1}}-green{{/if}}{{if MODE_PLACE.POSITION == 4}}-red{{/if}}">
+								<a class="js-sort-current-races" href="#NETLAP-VALUE">
+									<h4 class="label">
+										Net Lap
+									</h4>
+									<div class="content">
+										<div class="text-block">
+											<span class="text-1">
+												{{:NETLAP.VALUE}}
+											</span>
+											<span class="text-2">
+												s
+											</span>
+										</div>
+									</div>
+									<div class="diagram">
+										<svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 100 100">
+
+										    <path class="top-outer {{if NETLAP.DIAGRAM.OUTER < 0}}color-fill{{/if}}" stroke-dashoffset="-94" fill="none" stroke="#ED2224" stroke-miterlimit="10" d="M84 78.6c5.3-7.1 8.5-15.9 8.5-25.4 0-23.5-19-42.5-42.5-42.5S7.5 29.7 7.5 53.2c0 9.5 3.1 18.4 8.5 25.4"
+										    style="stroke-dashoffset: {{:NETLAP.DIAGRAM.OUTER}};"
+										    />
+
+										    <path class="top-inner {{if NETLAP.DIAGRAM.INNER < 0}}color-fill{{/if}}" stroke-dashoffset="-94" fill="none" stroke="#ED2224" stroke-miterlimit="10" d="M74.5 70.1c3.3-4.8 5.3-10.7 5.3-16.9 0-16.5-13.4-29.8-29.8-29.8S20.2 36.7 20.2 53.2c0 6.3 2 12.1 5.3 17"
+										    style="stroke-dashoffset: {{:NETLAP.DIAGRAM.INNER}};"
+										    />
+
+										    <path class="bottom-outer" fill="none" stroke="#ED2224" stroke-miterlimit="10" d="M84 78.6c5.3-7.1 8.5-15.9 8.5-25.4 0-23.5-19-42.5-42.5-42.5S7.5 29.7 7.5 53.2c0 9.5 3.1 18.4 8.5 25.4"/>
+
+										    <path class="bottom-inner" fill="none" stroke="#ED2224" stroke-miterlimit="10" d="M74.5 70.1c3.3-4.8 5.3-10.7 5.3-16.9 0-16.5-13.4-29.8-29.8-29.8S20.2 36.7 20.2 53.2c0 6.3 2 12.1 5.3 17"/>
+
+										</svg>
+
+									</div>
+								</a>
+							</div>
+
+							{{if REACTIONTIME.TIME}}
+							<div class="stat-item reaction-time {{if MODE_PLACE.POSITION == 1}}-green{{/if}}{{if MODE_PLACE.POSITION == 4}}-red{{/if}}">
+								<a class="js-sort-current-races" href="#REACTIONTIME-TIME">
+									<h4 class="label">
+										Reaction Time
+									</h4>
+									<div class="content">
+										<div class="text-block">
+											<span class="text-1">
+												{{:REACTIONTIME.TIME}}
+											</span>
+											<span class="text-2">
+												s
+											</span>
+										</div>
+
+										{{if REACTIONTIME.PLACE}}
+										<div class="stat-note -split">
+											<span class="position">
+												{{:REACTIONTIME.PLACE.LABEL}}
+											</span>
+											<span class="time">
+												{{:REACTIONTIME.PLACE.TIME}}
+											</span>
+										</div>
+										{{/if}}
+									</div>
+								</a>
+							</div>
+							{{/if}}
+
+							<div class="stat-item gross-lap {{if MODE_PLACE.POSITION == 1}}-green{{/if}}{{if MODE_PLACE.POSITION == 4}}-red{{/if}}">
+								<a class="js-sort-current-races" href="#GROSSLAP-TIME">
+									<h4 class="label">
+										Gross Lap
+									</h4>
+									<div class="content">
+										<div class="text-block">
+											<span class="text-1">
+												{{:GROSSLAP.TIME}}
+											</span>
+											<span class="text-2">
+												s
+											</span>
+										</div>
+									</div>
+								</a>
+							</div>
+
+							<div class="stat-item penalties {{if PENALTIES.VALUE > 0}}-red{{/if}}">
+								<a class="js-sort-current-races" href="#PENALTIES-VALUE">
+									<h4 class="label">
+										Penalties
+									</h4>
+									<div class="content">
+										<div class="text-block">
+											<span class="text-1">
+												{{:PENALTIES.VALUE}}
+											</span>
+										</div>
+										{{if PENALTIES.LABEL}}
+											<div class="stat-note">
+												<span class="text">
+													{{:PENALTIES.LABEL}}
+												</span>
+											</div>
+										{{/if}}
+									</div>
+								</a>
+							</div>
+
+							<div class="stat-item lane">
+								<a class="js-sort-current-races" href="#LANE">
+									<h4 class="label">
+										Lane
+									</h4>
+									<div class="content">
+										<div class="text-block">
+											<span class="text-1">
+												{{:LANE}}
+											</span>
+										</div>
+									</div>
+								</a>
+							</div>
+
+						</article>
+					{{/for}}
+				{{/if}}
+			</div>
+
+		</div>
+
+
+		<div class="layout-col layout-col-2">
+			<header class="page-header">
+				<div class="header-item">
+					<h3 class="label">
+						Reaction Race Format
+					</h3>
+					<div class="content">
+						<div class="text-block">
+							<span class="text-1">
+								Race Consistency
+							</span>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<div class="graph-vertical-bars">
+				{{if currentModeRacesOrdered}}
+					{{for currentModeRacesOrdered}}
+					<div class="bar-container {{if MODE_PLACE.POSITION == 1}}-green{{/if}}{{if MODE_PLACE.POSITION == 4}}-red{{/if}}">
+						<div class="bar-graphic">
+						{{if GROSSLAP}}
+							<div class="bar bar-1" style="height: {{:GROSSLAP.TIME_PERCENT}}%;"></div>
+						{{/if}}
+
+						{{if REACTIONTIME}}
+							<div class="bar bar-2" style="height: {{:REACTIONTIME.TIME_PERCENT}}%;"></div>
+						{{/if}}
+						</div>
+						<div class="bar-number">
+							0{{:#index + 1}}
+						</div>
+					</div>
+					{{/for}}
+				{{/if}}
+				<!-- <div class="bar-container">
+					<div class="bar bar-1" style="height: 70%;"></div>
+					<div class="bar bar-2" style="height: 10%;"></div>
+				</div>
+				<div class="bar-container">
+					<div class="bar bar-1" style="height: 67%;"></div>
+					<div class="bar bar-2" style="height: 8%;"></div>
+				</div>
+				<div class="bar-container -red">
+					<div class="bar bar-1" style="height: 90%;"></div>
+					<div class="bar bar-2" style="height: 12%;"></div>
+				</div> -->
+			</div>
+
+			{{if currentModeBestTime}}
+				<div class="highlight-box -green">
+					<div class="highlight-box-inner">
+						<div class="label">
+							Best Run
+						</div>
+						<div class="value">
+							<span class="text-1" data-value-type="s">
+								{{:currentModeBestTime}}
+							</span>
+						</div>
+					</div>
+				</div>
+			{{/if}}
+
+		</div>
+
+		<div class="layout-col layout-col-3">
+			<header class="page-header">
+				<div class="header-item">
+		      <h3 class="label">
+		        Leaderboard
+		      </h3>
+		      <div class="content">
+		        <div class="text-block" style="min-width: 145px;">
+		          <span class="text-1">
+		            {{if leaderboardMode == 'RACE'}}
+		              Best
+		            {{/if}}
+		            {{if leaderboardMode == 'GP'}}
+		              Grand
+		            {{/if}}
+		          </span>
+		          <span class="text-2">
+		            {{if leaderboardMode == 'RACE'}}
+		              Net Lap
+		            {{/if}}
+		            {{if leaderboardMode == 'GP'}}
+		              Prix
+		            {{/if}}
+		          </span>
+		        </div>
+		        <ul class="skew-buttons">
+		          <li {{if leaderboardMode == 'RACE'}}class="active"{{/if}}>
+		            <a href="#RACE" class="js-set-leaderboard-mode">
+		              <span class="text">
+		                NL
+		              </span>
+		            </a>
+		          </li>
+		          <li {{if leaderboardMode == 'GP'}}class="active"{{/if}}>
+		            <a href="#GP" class="js-set-leaderboard-mode">
+		              <span class="text">
+		                GP
+		              </span>
+		            </a>
+		          </li>
+		        </ul>
+		      </div>
+		    </div>
+			</header>
+
+			<ul class="leaderboard">
+				{{if currentModeLeaderboard}}
+					{{for currentModeLeaderboard}}
+						<!-- disabled -->
+						<li class="
+							{{if #index <= 2}}medal{{/if}}
+							{{if #index == 0}}-gold{{/if}}
+							{{if #index == 1}}-silver{{/if}}
+							{{if #index == 2}}-bronze{{/if}}
+						">
+							<div class="position">
+								<span class="text-1">
+									{{:#index + 1}}
+								</span>
+								{{if #index <= 2}}
+									<span class="text-2">
+										{{if #index == 0}}st{{/if}}
+										{{if #index == 1}}nd{{/if}}
+										{{if #index == 2}}rd{{/if}}
+									</span>
+								{{/if}}
+							</div>
+							<div class="name">
+								<span class="text">
+									{{:NAME}}
+								</span>
+								{{if #index <= 2}}
+									<div class="medal-icon"></div>
+								{{/if}}
+							</div>
+							<div class="value">
+								<span class="text-1">
+									{{:TIME}}
+								</span>
+								{{if #index <= 2}}
+									<div class="stat-note
+										{{if #getIndex() == 0}}-green{{/if}}
+										{{if #getIndex() == 1}}-red{{/if}}
+										{{if #getIndex() == 2}}-red{{/if}}
+									">
+										<span class="text">
+											{{if #getIndex() == 0}}Record{{/if}}
+											{{if #getIndex() == 1}}+{{:DIFF}}{{/if}}
+											{{if #getIndex() == 2}}+{{:DIFF}}{{/if}}
+										</span>
+									</div>
+								{{/if}}
+							</div>
+						</li>
+					{{/for}}
+				{{/if}}
+			</ul>
+		</div>
+
+
+	</div>
+
+</div>

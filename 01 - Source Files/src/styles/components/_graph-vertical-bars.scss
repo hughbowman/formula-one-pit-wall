@@ -1,0 +1,66 @@
+.graph-vertical-bars {
+	$bar-width: 12px;
+	$bar-height: 270px;
+	font-size: 0;
+
+	.bar-container {
+		width: $bar-width;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 8px;
+
+		.bar-graphic {
+			position: relative;
+			width: 100%;
+			height: $bar-height;
+			margin-bottom: 20px;
+			border-radius: $bar-width / 2;
+			background: rgba(255,255,255,0.1);
+			overflow: hidden;
+
+			.bar {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				border-radius: $bar-width / 2;
+			}
+
+			.bar-1 {
+				background: $color-iron-1;
+			}
+			.bar-2 {
+				background: $color-gunsmoke-1;
+			}
+		}
+
+		.bar-number {
+			@include font-2-regular;
+			color: $color-nandor-2;
+			font-size: 18px;
+			text-align: center;
+		}
+
+		&.-green {
+			.bar-graphic {
+				.bar-1 {
+					background: $color-chateau-green-1;
+				}
+				.bar-2 {
+					background: $color-forest-green-1;
+				}
+			}
+		}
+
+		&.-red {
+			.bar-graphic {
+				.bar-1 {
+					background: $color-thunderbird-1;
+				}
+				.bar-2 {
+					background: darken($color-thunderbird-1, 15);
+				}
+			}
+		}
+	}
+}

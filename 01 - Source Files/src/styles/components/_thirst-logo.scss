@@ -1,0 +1,18 @@
+.thirst-logo {
+	position: absolute;
+	left: 55px;
+	bottom: 20px;
+
+	.text,
+	img {
+		// display: inline-block;
+		vertical-align: bottom;
+		@include font-1-regular;
+		font-size: 12px;
+	}
+
+	img {
+		width: 180px;
+		height: auto;
+	}
+}

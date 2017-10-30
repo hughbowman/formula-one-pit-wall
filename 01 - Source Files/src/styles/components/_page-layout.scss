@@ -1,0 +1,150 @@
+.page-container {
+	height: 100%;
+}
+
+.page-layout {
+	font-size: 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	min-height: calc(100vh - 130px);
+	// padding-bottom: 50px;
+
+	> .inner {
+		max-width: $site-inner-max-width;
+		margin: auto;
+		padding-left: 55px;
+		padding-right: 55px;
+		padding-top: 25px;
+		padding-bottom: 40px;
+	}
+
+	.page-header {
+		// margin-top: 25px;
+	}
+
+	&.page-graph {
+		background-image: url(../img/bg-1.jpg);
+
+		.inner {
+			text-align: center;
+
+			.page-header {
+				.header-item {
+					text-align: left;
+				}
+			}
+
+			.velocity-graph {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	&.page-timing {
+		background-image: url(../img/bg-2.jpg);
+
+		.layout-col {
+			&.layout-col-1 {
+				width: 570px;
+			}
+
+			&.layout-col-2 {
+				width: 230px;
+				padding-left: 30px;
+				padding-right: 30px;
+				text-align: center;
+
+				.page-header {
+					text-align: left;
+				}
+
+				.graph-vertical-bars {
+					margin-bottom: 32px;
+				}
+			}
+
+			&.layout-col-3 {
+				width: 370px;
+			}
+		}
+	}
+
+	&.page-analysis {
+		background-image: url(../img/bg-3.jpg);
+
+		.layout-col {
+			&.layout-col-1 {
+				width: 345px;
+			}
+
+			&.layout-col-2 {
+				width: 485px;
+				text-align: center;
+
+				.page-header {
+					display: inline-block;
+					width: auto;
+					text-align: left;
+					margin-top: 13px;
+				}
+			}
+
+			&.layout-col-3 {
+				width: 340px;
+				padding-top: 10px;
+
+				.diagram-data {
+					margin-left: 70px;
+				}
+			}
+		}
+	}
+
+	&.page-social {
+		background-image: url(../img/bg-4.jpg);
+
+		.layout-col {
+			&.layout-col-1 {
+				width: 820px;
+				border-right: 1px solid #4C5F5F;
+				padding-bottom: 35px;
+			}
+			&.layout-col-2 {
+				width: 350px;
+		    padding-left: 35px;
+				iframe {
+			    background: rgba(0,0,0,0.3);
+				}
+			}
+		}
+
+		.page-header {
+			margin-bottom: 35px;
+
+			.header-item {
+				.label {
+					font-size: 13px;
+				}
+
+				.content .text-1 {
+					font-size: 38px;
+				}
+			}
+		}
+	}
+
+	&.page-dashboard {
+
+		.layout-col {
+			&.layout-col-1 {
+				width: 100%;
+			}
+		}
+	}
+
+	.layout-col {
+		display: inline-block;
+		vertical-align: top;
+	}
+}

@@ -1,0 +1,168 @@
+.site-header {
+	border-top: 8px solid $color-thunderbird-1;
+	border-bottom: 2px solid $color-nandor-2;
+	background-color: $color-outer-space-1;
+	height: 130px;
+
+	.inner {
+		max-width: $site-inner-max-width;
+		margin: auto;
+		height: 100%;
+		font-size: 0;
+	}
+
+	.home-button {
+		position: absolute;
+		z-index: 2;
+		left: 0;
+		top: 0;
+		display: block;
+		width: 60px;
+		height: 100%;
+		background: transparent;
+	}
+
+	.site-nav,
+	.event-details {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		height: 100%;
+	}
+
+	.site-nav {
+		.logo {
+			position: absolute;
+			left: 160px;
+			top: 35px;
+		}
+
+		.page-name {
+			position: absolute;
+			left: 154px;
+			top: 45px;
+			text-transform: uppercase;
+			margin: 0;
+			padding: 0;
+			font-size: 0;
+
+			> span {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			.text-1 {
+				@include font-2-bold;
+				color: #fff;
+				font-size: 42px;
+				transform: skew($font-skew-1);
+			}
+			.text-2 {
+				@include font-2-bold;
+				color: $color-nandor-1;
+				font-size: 42px;
+				transform: skew($font-skew-1);
+			}
+			.number {
+				@include font-2-book;
+				font-size: 19px;
+				color: $color-nandor-1;
+				padding: 5px 0 0 6px;
+			}
+		}
+
+		.nav-bars {
+			position: absolute;
+			left: 70px;
+			top: 35px;
+
+			&:before {
+				content: "";
+				position: absolute;
+				right: calc(100% - 4px);
+				width: 1000px;
+				height: 48px;
+				background-color: $color-outer-space-2;
+				transform: skew($font-skew-1);
+			}
+
+			&:after {
+				content: "NAV";
+				position: absolute;
+				right: calc(100% - 6px);
+				top: 2px;
+				@include font-1-bold;
+				font-size: 12px;
+				text-align: right;
+				color: $color-outer-space-1;
+			}
+
+			svg {
+				path {
+					fill: $color-nandor-1;
+				}
+
+				a {
+					&.active {
+						cursor: default;
+
+						path {
+							fill: $color-thunderbird-1;
+						}
+					}
+
+					&:not(.active):hover {
+						path {
+							fill: $color-thunderbird-1;
+							// fill: darken($color-thunderbird-1, 20);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.event-details {
+		.map {
+			position: absolute;
+			right: 389px;
+			top: 22px;
+
+			svg {
+
+			}
+		}
+
+		.text {
+			height: 100%;
+			padding-top: 35px;
+			padding-right: 55px;
+			text-align: right;
+
+			.title {
+				@include font-2-bold;
+				font-size: 35px;
+				margin: 0;
+
+				.text-1 {
+					color: $color-thunderbird-1;
+				}
+				.text-2 {
+					color: #fff;
+				}
+			}
+			.address {
+				@include font-1-bold;
+				font-size: 12px;
+				color: #fff;
+				margin-bottom: 0.3em;
+			}
+			.date {
+				@include font-1-regular;
+				font-size: 11px;
+				color: $color-dove-gray-1;
+			}
+		}
+	}
+}

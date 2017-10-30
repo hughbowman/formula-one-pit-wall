@@ -1,0 +1,72 @@
+.skew-buttons {
+	@include plainlist;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 0;
+
+	li {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		max-height: 22px;
+		margin: 0 1px;
+
+		a {
+			position: relative;
+			display: block;
+			padding: 3px 10px;
+			@include font-2-book;
+			font-size: 15px;
+
+			&:before {
+				@include transition(all 0.25s ease-out);
+				content: "";
+				position: absolute;
+				z-index: 1;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: $color-nandor-2;
+			}
+
+			&:hover {
+				&:before {
+					background-color: lighten($color-nandor-2, 10);
+				}
+			}
+
+			.text {
+				@include transition(all 0.25s ease-out);
+				position: relative;
+				z-index: 2;
+				color: #fff;
+			}
+		}
+
+		&.active {
+			a {
+				@include font-2-bold;
+				cursor: default;
+
+				&:before {
+					background-color: $color-thunderbird-1;
+				}
+			}
+		}
+
+		&.disabled {
+			a {
+				cursor: default;
+
+				&:before {
+					background-color: darken($color-nandor-2, 15);
+				}
+
+				.text {
+					color: darken(#fff, 50);
+				}
+			}
+		}
+	}
+}
